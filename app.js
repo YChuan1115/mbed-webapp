@@ -13,12 +13,12 @@ var MbedConnectorApi = require('mbed-connector-api');
 
 //V5nz2XpPdiZlmmqh3KtXIlwjS8dmQG67NXgLZFpdVyA2DqqPDyaED1mf3dtJz2vOypkBxbIV8AhpFgNUGCNETXnEt7DXkSd80GUv
 var accessKey = process.env.ACCESS_KEY || "39WxX2aOAIHdZKUVNwSXYXQ91SyC3tA0AKB03m6m8w2RUVBuMEG3WQ68oZBdJ0k13GlRx76L1d78b2JidJ6rbFdlJzds64mXBkL8";
-var port = process.env.PORT || 8080;
+var port = 3000;
 
 // Paths to resources on the endpoints
-var Temperature = '/Monitor/0/D';
-var PressureHp = '/Monitor/0/Hp';
-var Humidity = '/Monitor/0/Hum';
+var Temperature = '/Sensor/0/Temp';
+var PressureHp = '/Sensor/0/Hp';
+var Humidity = '/Sensor/0/Hum';
 var GPIO = '/GPIO/0/STATE'
 
 // Instantiate an mbed Device Connector object
