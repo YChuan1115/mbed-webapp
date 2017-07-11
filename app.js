@@ -33,35 +33,44 @@ app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', function (req, res) {
-  // Get all of the endpoints and necessary info to render the page
+  // Get all of the endpoints(i.e.,Array) and necessary info to render the page
   mbedConnectorApi.getEndpoints(function(error, endpoints) {
     if (error) {
       throw error;
     } else {
-      // Setup the function array
-      var functionArray = endpoints.map(function(endpoint) {
-        return function(mapCallback) {
-			 console.log("endpoints name>"+endpoint.name);
-			  console.log("endpoints type>"+endpoint.type);
-          mbedConnectorApi.getResourceValue(endpoint.name, GPIO, function(error, value) {
-           endpoint.blinkPattern = value;
-            mapCallback(error);
-         });
+	  /*version 1: */    /*modified by joseph*/
+	     endpoints.map(function(endpoint) {	
+			console.log("endpoints name>"+endpoint.name);
+			console.log("endpoints type>"+endpoint.type);
+			console.log("endpoints status>"+endpoint.status);
+		 });	
+        res.render('index', {
+        endpoints: endpoints
+       });
+	 /*-------------------------------------------------------*/		  
+	 /*version 2: */
+     /*  
+	  // Setup the function array
+      var functionArray = endpoints.map(function(endpoint) {		  
+
+        return function(ok) {
+	       ok();
         };
       });
-
-      // Fetch all blink patterns in parallel, finish when all HTTP
+  
+      // Fetch all Resoruces in parallel, finish when all HTTP
       // requests are complete (uses Async.js library)
-      async.parallel(functionArray, function(error) {
+     async.parallel(functionArray, function(error) {
         if (error) {
           res.send(String(error));
         } else {
-			 console.log("endpoints-->"+endpoints);
-          res.render('index', {
+			console.log("endpoints--->"+endpoints.toString());
+            res.render('index', {
             endpoints: endpoints
           });
         }
       });
+	 */
     }
   });
 });
