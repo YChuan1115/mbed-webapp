@@ -12,7 +12,7 @@ var MbedConnectorApi = require('mbed-connector-api');
 // CONFIG (change these)
 
 //V5nz2XpPdiZlmmqh3KtXIlwjS8dmQG67NXgLZFpdVyA2DqqPDyaED1mf3dtJz2vOypkBxbIV8AhpFgNUGCNETXnEt7DXkSd80GUv
-var accessKey = process.env.ACCESS_KEY || "39WxX2aOAIHdZKUVNwSXYXQ91SyC3tA0AKB03m6m8w2RUVBuMEG3WQ68oZBdJ0k13GlRx76L1d78b2JidJ6rbFdlJzds64mXBkL8";
+var accessKey = "39WxX2aOAIHdZKUVNwSXYXQ91SyC3tA0AKB03m6m8w2RUVBuMEG3WQ68oZBdJ0k13GlRx76L1d78b2JidJ6rbFdlJzds64mXBkL8";
 var port = 3000;
 
 // Paths to resources on the endpoints
